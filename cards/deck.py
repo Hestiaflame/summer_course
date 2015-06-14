@@ -1,6 +1,6 @@
 # deck.py
 # -------
-# by Maya Malavasi
+# by Hestiaflame
 
 from card import Card
 from random import shuffle
