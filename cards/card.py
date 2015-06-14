@@ -1,6 +1,6 @@
 # card.py
 # -------
-# by Maya Malavasi
+# by Hestiaflame
 
 from card import Card
 from random import shuffle
@@ -12,7 +12,6 @@ class Deck():
 # This saves the attributes of deck for later.
     	def __init__(self):
 		self.cards = [Card(card_num) for card_num in range(52)]
-		self.discard_pile = []
 
 # This shows what the class is as specifically as possible. Not meant to be turned into a string.
 	def __repr__(self):
@@ -27,9 +26,7 @@ class Deck():
 		if count() == 0:
 			return None
 		else:
-			last_card = self.cards.pop()
-			self.discard_pile.append(last_card)
-			return last_card
+			return self.cards.pop()
 
 # Look at top card
 	def peek(self):
@@ -49,3 +46,4 @@ class Deck():
 # Add a card
 	def add(self, card):
 		self.cards.append(card)
+
