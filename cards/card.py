@@ -1,6 +1,6 @@
 # card.py
 # -------
-# by Maya Malavasi
+# by Hestiaflame
 
 # This defines a playing card. The card is defined by an int. For example, 0 is the 2 of Clubs, 51 is
 # the Ace of Spades
