@@ -1,4 +1,4 @@
-# card.py
+# deck.py
 # -------
 # by Maya Malavasi
 
