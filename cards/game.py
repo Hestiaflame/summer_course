@@ -3,6 +3,10 @@
 # by Hestiaflame
 # Will hopefully simulate a game of crazy eights.
 
+"""
+does not work yet!!!
+"""
+
 from player import Player
 from deck import Deck
 
