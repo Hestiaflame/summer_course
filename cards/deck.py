@@ -4,18 +4,25 @@
 
 from card import Card
 from random import shuffle
+#from random import seed
+
 
 class Deck():
-    	"A deck represents a normal deck with 52 cards"
+    	"A deck represents a normal deck"
 
 
 # This saves the attributes of deck for later.
-    	def __init__(self, cards=[Card(card_num) for card_num in range(52)]):
-		self.cards = cards
+    	def __init__(self, cards=None, shuffle=False):
+		if cards == None:
+			self.cards = []
+		else:
+			self.cards = [Card(card_num) for card_num in cards]
+		if shuffle == True:
+			self.mix()
 
 # This shows what the class is as specifically as possible. Not meant to be turned into a string.
 	def __repr__(self):
-		return "<Deck with {} cards>".format(self.count())
+		return "<Deck with {} cards: {}>".format(self.count(), self.cards)
 
 # Shuffle deck
 	def mix(self):
@@ -39,7 +46,7 @@ class Deck():
 
 # Check if the deck is empty
 	def empty(self):
-		if count() == 0:
+		if self.count() == 0:
 			return True
 		else:
 			return False
@@ -47,4 +54,8 @@ class Deck():
 # Add a card
 	def add(self, card):
 		self.cards.append(card)
+
+	def add_deck(self, deck):
+		while len(deck.cards) > 0:
+			self.cards.append(deck.cards.pop(0))
 
