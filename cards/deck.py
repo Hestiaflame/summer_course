@@ -59,3 +59,6 @@ class Deck():
 		while len(deck.cards) > 0:
 			self.cards.append(deck.cards.pop(0))
 
+# empty the deck
+	def clear(self):
+		self.cards = []
