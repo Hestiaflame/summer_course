@@ -13,9 +13,11 @@ class War:
 		self.player2 = WarPlayer()
 		self.battles = 0
 
-		originalDeck = Deck(range(52))
-		originalDeck.mix()
-		while not originalDeck.empty():
+		originalDeck = Deck(range(52), True)
+#		print("________________________________________________________")
+#		print(originalDeck)
+#		print("________________________________________________________")
+		while originalDeck.count() > 0:
 			self.player1.take_card(originalDeck.draw())
 			self.player2.take_card(originalDeck.draw())
 
@@ -36,10 +38,10 @@ class War:
 		"""Returns True if the game is over (if either player has no cards). 
 		Otherwise returns False."""
 		if not self.player1.has_any_cards():
-			print("Player2 won!")
+#			print("Player2 won!")
 			return True
 		elif not self.player2.has_any_cards():
-			print("Player1 won!")
+#			print("Player1 won!")
 			return True
 		else:
 			return False
@@ -68,21 +70,21 @@ class War:
 
 #2	
 			if card1 > card2:
-				self.player1.discardPile.add_deck(self.battleDeck1)
-				self.player1.discardPile.add_deck(self.battleDeck2)
+				self.player1.take_deck(self.battleDeck1)
+				self.player1.take_deck(self.battleDeck2)
 #				print("1cards: {}\n 1discard: {}".format(self.player1.cards, self.player1.discardPile))
 #				print("2cards: {}\n 2discard: {}".format(self.player2.cards, self.player2.discardPile))
 #				print("")
-				self.battleDeck1.cards = []
-				self.battleDeck2.cards = []
+				"""				self.battleDeck1.clear()
+				self.battleDeck2.clear()"""
 			elif card1 < card2:
-				self.player2.discardPile.add_deck(self.battleDeck1)
-				self.player2.discardPile.add_deck(self.battleDeck2)
+				self.player2.take_deck(self.battleDeck1)
+				self.player2.take_deck(self.battleDeck2)
 #				print("1cards: {}\n 1discard: {}".format(self.player1.cards, self.player1.discardPile))
 #				print("2cards: {}\n 2discard: {}".format(self.player2.cards, self.player2.discardPile))
 #				print("")
-				self.battleDeck1.cards = []
-				self.battleDeck2.cards = []
+				self.battleDeck1.clear()
+				self.battleDeck2.clear()
 #3
 			else:
 #				print("draw for battle")
@@ -100,3 +102,6 @@ class War:
 				self.battleDeck1.add(self.player1.draw_card())
 			if self.player2.has_any_cards():
 				self.battleDeck2.add(self.player2.draw_card())
+
+	
+
