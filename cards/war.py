@@ -75,16 +75,12 @@ class War:
 #				print("1cards: {}\n 1discard: {}".format(self.player1.cards, self.player1.discardPile))
 #				print("2cards: {}\n 2discard: {}".format(self.player2.cards, self.player2.discardPile))
 #				print("")
-				"""				self.battleDeck1.clear()
-				self.battleDeck2.clear()"""
 			elif card1 < card2:
 				self.player2.take_deck(self.battleDeck1)
 				self.player2.take_deck(self.battleDeck2)
 #				print("1cards: {}\n 1discard: {}".format(self.player1.cards, self.player1.discardPile))
 #				print("2cards: {}\n 2discard: {}".format(self.player2.cards, self.player2.discardPile))
 #				print("")
-				self.battleDeck1.clear()
-				self.battleDeck2.clear()
 #3
 			else:
 #				print("draw for battle")
