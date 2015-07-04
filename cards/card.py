@@ -1,49 +1,68 @@
 # card.py
 # -------
-# by Hestiaflame
+# by Maya Malavasi
 
-from card import Card
-from random import shuffle
+# This defines a playing card. The card is defined by an int. For example, 0 is the 2 of Clubs, 51 is
+# the Ace of Spades
 
-class Deck():
-    	"A deck represents a normal deck with 52 cards"
+class Card():
+    	"A card represents a playing card"
+	
+	suits = ["Clubs", "Diamonds", "Hearts", "Spades"]
+    	ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
+    	short_suits = ["C", "D", "H", "S"]
+    	short_ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
 
 
-# This saves the attributes of deck for later.
-    	def __init__(self):
-		self.cards = [Card(card_num) for card_num in range(52)]
+# This the attributes of card for later.
+    	def __init__(self, card_number):
+		if card_number > 51:
+			raise ValueError("Card number cannot be over 51")
+		if card_number < 0:
+			raise ValueError("Card number cannot be less than 0")
+		else:
+			self.card_number = card_number
+
 
 # This shows what the class is as specifically as possible. Not meant to be turned into a string.
 	def __repr__(self):
-		return "<Deck with {} cards>".format(self.num_cards)
+		return "<{}>".format(self.short_name())
 
-# Shuffle deck
-	def mix(self):
-		shuffle(self.cards)
 
-# Draw a card
-	def draw(self):
-		if count() == 0:
-			return None
+# This shows the attributes of the class in an attractive way.
+	def __str__(self):
+		return "{} of {}".format(self.rank(), self.suit())
+
+
+# This takes two arguments finds out which is bigger
+# If this one is bigger, return positive int
+# If they are equal, return 0
+# If the other one is bigger, return negative int
+
+	def __cmp__(self, other_card):
+		if self.rank() > other_card.rank():
+			return 1
+		elif self.rank() < other_card.rank():
+			return -1
 		else:
-			return self.cards.pop()
+			return 0
 
-# Look at top card
-	def peek(self):
-		return self.cards[len(self.cards) - 1]
 
-# Count the number of cards in the deck
-	def count(self):
-		return len(self.cards)
+	def rank(self):
+		return self.ranks[self.card_number / 4]
 
-# Check if the deck is empty
-	def empty(self):
-		if count() == 0:
-			return True
-		else:
-			return False
+	def suit(self):
+		return self.suits[self.card_number % 4]
 
-# Add a card
-	def add(self, card):
-		self.cards.append(card)
+	def short_rank(self):
+		return self.short_ranks[self.card_number / 4]
+
+	def short_suit(self):
+		return self.short_suits[self.card_number % 4]
+
+	def name(self):
+		return "{} of {}".format(self.rank(), self.suit())
+
+	def short_name(self):
+		return "{}{}".format(self.short_rank(), self.short_suit())
 
