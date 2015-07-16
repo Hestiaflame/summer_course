@@ -1,5 +1,6 @@
 # player.py
 # -------
+# A file for all of the players in all of the card games that I have built (two).
 # by Hestiaflame
 
 from card import Card
