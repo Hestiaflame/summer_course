@@ -64,20 +64,10 @@ card is at that index. (The End - lovely story right? :-))"""
 	def get_play(self, prev_card):
 		if not self.empty():
 			index_return = 0
-
-			print("My prev_card is {}".format(prev_card))
-
 			for each_card in self.cards:
-				print("EACH_CARD: {},  INDEX: {}".format(each_card, index_return))
 				if each_card.suit() == prev_card.suit() and each_card.rank() != "8":
-
-#					print("SUIT MATCH, suit is {}, INDEX OF {}".format(each_card.suit(), index_return))
-
 					return self.cards.pop(index_return)
 				elif  each_card.rank() == prev_card.rank() and each_card.rank() != "8":
-
-					print("RANK MATCH, rank is {}, INDEX OF {}".format(each_card.rank(), index_return))
-
 					return self.cards.pop(index_return)
 				index_return += 1
 				
